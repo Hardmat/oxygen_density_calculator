@@ -1,4 +1,6 @@
 import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Constants
 molar_mass_oxygen = 32  # g/mol
@@ -22,10 +24,6 @@ temperature = st.slider("Temperature (°C)", 0, 80, step=1)
 
 density = calculate_density(pressure, temperature)
 st.write("Density of gaseous oxygen:", density, "kg/m^3")
-
-# Plotting
-import matplotlib.pyplot as plt
-import numpy as np
 
 # Generate pressure and temperature values
 pressure_values = np.linspace(0, 200, 100)
@@ -52,5 +50,5 @@ ax.set_title("Gaseous Oxygen Density")
 # Add a red dot for the calculated density position
 ax.scatter(pressure, temperature, density, color="red", s=50)
 
-plt.show()
+# Display the plot using st.pyplot
 st.pyplot(fig)
